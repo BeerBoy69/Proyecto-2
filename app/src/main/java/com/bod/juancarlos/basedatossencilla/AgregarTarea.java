@@ -43,6 +43,8 @@ public class AgregarTarea extends AppCompatActivity {
     RatingBar estrellas;
     Calendar c;
 
+    /*Funcion utilizada en los aspectos de creacion de las tareas en la segunda activity, en la cual se verifca*/
+    /*la categoria a la podria pertenecer una tarea, asi como la dificultad que posee la misma*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +91,9 @@ public class AgregarTarea extends AppCompatActivity {
             }
         });
     }
-
+    /*Se utiliza para registar una tarea en la base de datos en funcion de los elementos que posee la misma*/
+    /*como nombre, fecha, hora, categoria, etc.*/
+    /*Luego se insertan enla base de datos mediante db.insert*/
     public void registrarTarea(View view) {
         TareaOpenHelper2 conn = new TareaOpenHelper2(this,"bd_tareas",null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -111,14 +115,14 @@ public class AgregarTarea extends AppCompatActivity {
         Intent i = new Intent(AgregarTarea.this,MainActivity.class);
         startActivity(i);
     }
-
+    /*Se utiliza para borrar los elementos o tareas de la aplicacion*/
     public void borrarbd(View view) {
         TareaOpenHelper2 conn = new TareaOpenHelper2(this,"bd_tareas",null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         db.delete("tareas2",null,null);
         db.close();
     }
-
+    /*Permite seleccionar la hora a la que se desea completar la tarea*/
     public void selectHora(View view) {
         c= Calendar.getInstance();
         int mHora = c.get(Calendar.HOUR_OF_DAY);
@@ -132,7 +136,7 @@ public class AgregarTarea extends AppCompatActivity {
         },mHora,mMin,false);
         timePickerDialog.show();
     }
-
+    /*Permite seleccionar la fecha en la que se desea completar la tarea*/
     public void selectDia(View view) {
         c= Calendar.getInstance();
         int mDia = c.get(Calendar.HOUR_OF_DAY);

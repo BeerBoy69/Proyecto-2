@@ -5,6 +5,8 @@ public class Tarea {
     private String nombre,fecha,hora,categoria;
     private boolean completado;
 
+    /*Elementos que componen la base de datos tales como la foto, la dificultad, la categoria, la hora, la fecha,*/
+    /*entre otros. Tambien estan los tipos de datos de los mismos.*/
     public Tarea(){}
 
     public int getFoto() {

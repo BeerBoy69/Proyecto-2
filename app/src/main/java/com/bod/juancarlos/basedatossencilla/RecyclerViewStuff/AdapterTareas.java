@@ -29,7 +29,7 @@ public class AdapterTareas extends RecyclerView.Adapter<AdapterTareas.ViewHolder
 
     ArrayList<Tarea> listaTareas;
 
-
+    /*Permite llenar el arreglo de tareas con los elementos que componen la misma*/
     public AdapterTareas(ArrayList<Tarea> listaTareas) {
         this.listaTareas = listaTareas;
     }
@@ -41,7 +41,8 @@ public class AdapterTareas extends RecyclerView.Adapter<AdapterTareas.ViewHolder
 
         return new ViewHolderTareas(view);
     }
-
+    /*Permite relacionar los elementos del layout con los objetos de las tarea en*/
+    /*cuanto a las lista de cosas por hacer*/
     @Override
     public void onBindViewHolder(@NonNull final ViewHolderTareas holder, int position) {
         holder.nombreTareaHolder.setText(listaTareas.get(position).getNombre().toString());
@@ -56,6 +57,8 @@ public class AdapterTareas extends RecyclerView.Adapter<AdapterTareas.ViewHolder
 
     @Override
     public int getItemCount() { return listaTareas.size(); }
+    /*Permite cambiar el estado de completado de 0 a 1 para los que posteriormente se */
+    /*mostrara un mensaje de felicitaciones*/
 
     public class ViewHolderTareas extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -80,6 +83,11 @@ public class AdapterTareas extends RecyclerView.Adapter<AdapterTareas.ViewHolder
             completado.setOnClickListener(this);
           }
 
+        /*Verifica si una tarea se a marcado como completado*/
+        /*Donde en caso de se halla completado una dira un mensaje*/
+        /*de "completado" y en uncion de la dificultad que se le*/
+        /*halla colocado a la tarea se sumara a la barra de progreso el*/
+        /*avance y se mostrara un mensaje de felicitaciones*/
         @Override
         public void onClick(View view) {
             TareaOpenHelper2 conn = new TareaOpenHelper2(context,"bd_tareas",null,1);
@@ -93,7 +101,8 @@ public class AdapterTareas extends RecyclerView.Adapter<AdapterTareas.ViewHolder
 
 
         }
-
+        /*Se utiliza para remover la tarea una vez se halla completado*/
+        /*la misma.*/
         public void removeAt(int position) {
             listaTareas.remove(position);
             notifyItemRemoved(position);

@@ -19,7 +19,8 @@ import com.bod.juancarlos.basedatossencilla.RecyclerViewStuff.AdapterTareas;
 import com.bod.juancarlos.basedatossencilla.SQLiteStuff.TareaOpenHelper2;
 import java.util.ArrayList;
 
-
+/*Elementos tales como el nombre de las tareas, las estrellas de la dificultad, */
+/*el array con las tareas, el recycler view, la barra de progreso, entre otras*/
 public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ImageView imagen;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setProgress(verProgreso());
 
     }
-
+    /**/
     private int verProgreso() {
         TareaOpenHelper2 conn = new TareaOpenHelper2(this,"bd_tareas",null,1);
         SQLiteDatabase db = conn.getReadableDatabase();
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         return progreso;
         }
 
+    /*Se utiliza para llenar la base de datos con los elementos que componen las tareas como el nombre, la fecha, la hora,*/
+    /*la categoria, dificultad y se le da una posicion dentro del array de tareas que se mostrara en el recycler view*/
 
     private void llenarRecycler() {
         TareaOpenHelper2 conn = new TareaOpenHelper2(this,"bd_tareas",null,1);
@@ -93,13 +96,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /*Se utiliza para agregar la tarea a la activity principal*/
     public void agregarTarea(View view) {
         Intent i = new Intent(MainActivity.this,AgregarTarea.class);
         startActivity(i);
     }
 
-
+    /*Se utiliza para añadir una foto al estilo de redes sociales a la interfaz principal de la aplicacion*/
     public void selectFoto(View view) {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(i,100);
