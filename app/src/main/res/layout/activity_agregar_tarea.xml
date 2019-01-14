@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@drawable/doit"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imagen"
@@ -20,8 +20,8 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Agregue la Tarea Deseada"
+        android:inputType="textPersonName"
         android:text="" />
 
     <android.support.constraint.ConstraintLayout
@@ -35,11 +35,10 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="20dp"
             android:clickable="true"
+            android:onClick="selectDia"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_my_calendar"
-            android:onClick="selectDia"
-          />
+            app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
         <TextView
             android:id="@+id/diaActivity"
@@ -55,21 +54,21 @@
             android:id="@+id/selectHora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_marginStart="24dp"
+            android:layout_marginBottom="20dp"
             android:clickable="true"
+            android:onClick="selectHora"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/diaActivity"
-            app:srcCompat="@android:drawable/ic_menu_recent_history"
-            android:onClick="selectHora"/>
+            app:srcCompat="@android:drawable/ic_menu_recent_history" />
 
         <TextView
             android:id="@+id/horaActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="28dp"
+            android:layout_marginBottom="20dp"
             android:text="Hora"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/selectHora"
@@ -96,8 +95,8 @@
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_weight="1"
             android:numStars="5" />
     </RelativeLayout>
@@ -105,18 +104,19 @@
     <Spinner
         android:id="@+id/spinner"
         style="?android:attr/spinnerItemStyle"
-        android:singleLine="true"
-        android:ellipsize="marquee"
-        android:textSize="18sp"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:singleLine="true"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:onClick="registrarTarea"
         android:text="Agregar" />
 
@@ -124,8 +124,9 @@
         android:id="@+id/borrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Borrar Todas las Tareas"
-        android:onClick="borrarbd"/>
+        android:background="@color/colorAccent"
+        android:onClick="borrarbd"
+        android:text="Borrar Todas las Tareas" />
 
 
 </LinearLayout>
